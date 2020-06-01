@@ -1,0 +1,46 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+.ag-theme-alpine {
+    @include ag-theme-alpine();
+}
+
+div.container{
+    margin: 0px 40px;
+}
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  form.normal-form{
+    margin: 10px;
+}
+
+.controles-container{
+    width: 100%;
+    padding: 5%;    
+}
+
+.controles-container > * {
+    width: 100%;
+    }
+
+    .add-bottom-padding{
+        padding-bottom: 10px;
+    }
+    /* radio group */
+mat-radio-group mat-radio-button{
+    margin-left: 5px;
+}
+
+.button-row button{
+    margin: 5px;
+}
+
+.ag-cell{
+    text-align: left;
+}

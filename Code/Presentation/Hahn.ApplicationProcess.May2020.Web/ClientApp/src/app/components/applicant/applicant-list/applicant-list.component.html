@@ -1,0 +1,17 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="fill-remaining-space"></span>
+        <span>Applicants</span>
+        <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+
+    <div class="button-row">
+        <button mat-raised-button color="primary" type="button" (click)="onAddNewClick()">Add New</button>
+    </div>
+
+    <div style="text-align: center; margin: auto 0;">
+        <ag-grid-angular style=" height: 500px;" class="ag-theme-alpine" [rowData]="applicants"
+            [columnDefs]="columnDefs" [pagination]="true" [frameworkComponents]="frameworkComponents">
+        </ag-grid-angular>
+    </div>
+</div>

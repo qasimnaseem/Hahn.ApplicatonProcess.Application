@@ -1,0 +1,62 @@
+<div class="container">
+  <mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>Applicant</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+  <form [formGroup]="service.addEditForm" class="normal-form" (ngSubmit)="service.saveApplicant()">
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <mat-form-field>
+            <input formControlName="name" matInput placeholder="Name*">
+            <mat-error *ngIf="service.formFields.name.errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.formFields['name'].hasError('minlength')">Minimum 5 characters required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="familyName" matInput placeholder="Family Name*">
+            <mat-error *ngIf="service.formFields.familyName.errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.formFields['familyName'].hasError('minlength')">Minimum 5 characters required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="emailAddress" matInput placeholder="Email*">
+            <mat-error *ngIf="service.formFields['emailAddress'].hasError('required')">This field is mandatory.
+            </mat-error>
+            <mat-error *ngIf="service.formFields['emailAddress'].hasError('email')">Not a valid email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="address" matInput placeholder="Address*">
+            <mat-error *ngIf="service.formFields.address.errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.formFields['address'].hasError('minlength')">Minimum 10 characters required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <mat-form-field>
+            <input formControlName="countryOfOrigin" matInput placeholder="Country*">
+            <mat-error *ngIf="service.formFields.countryOfOrigin.errors?.required">This field is mandatory.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input type="number" formControlName="age" matInput placeholder="Age*">
+            <mat-error *ngIf="service.formFields.age.errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.formFields['age'].hasError('min')">Age should be grater than 20</mat-error>
+            <mat-error *ngIf="service.formFields['age'].hasError('max')">Age should be less than 60</mat-error>
+          </mat-form-field>
+          <div style="padding-top:29px; padding-bottom:29px;">
+            <mat-checkbox formControlName="hired">Hired</mat-checkbox>
+          </div>
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit"
+              [disabled]="service.addEditForm.invalid">Save</button>
+            <button mat-raised-button color="warn" (click)="onBackClick()">Back</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</div>
